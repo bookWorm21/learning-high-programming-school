@@ -14,5 +14,11 @@ where s.name = 'Guardians'
 
 
 --reference
+SELECT T.*
+FROM Tasks T
+         JOIN Dwarves D ON T.assigned_to = D.dwarf_id
+         JOIN Squads S ON D.squad_id = S.squad_id
+WHERE S.name = 'Guardians';
 
 --reflection
+Аналогичное решение через два join

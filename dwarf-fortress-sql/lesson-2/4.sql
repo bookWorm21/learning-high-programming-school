@@ -12,5 +12,9 @@ from
 group by (d.dwarf_id, d.name, t.status)
 
 --reference
+SELECT assigned_to, status, COUNT(*) AS task_count
+FROM Tasks
+GROUP BY assigned_to, status;
 
 --reflection
+Сделал лишний join с таблицей дварфов, хотя в таблице tasks информации хватает: плохой инстинкт делать join для добычи информации, буду стараться минимизировать количество таблица в запросе
