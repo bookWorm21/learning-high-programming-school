@@ -39,8 +39,8 @@
 | quantity            |        | join_date           |        +---------------------+
 +---------------------+        | role                |        | SQUAD_EQUIPMENT     |
 | exit_date           |        +---------------------+
-| exit_reason         |        | squad_id (FK)       |
-+---------------------+        | equipment_id (FK)   |
+| exit_reason         |                                       | squad_id (FK)       |
++---------------------+                                       | equipment_id (FK)   |
 | quantity            |
 +---------------------+        +---------------------+        | issued_date         |
 | WORKSHOP_PRODUCTS   |        | SQUAD_OPERATIONS    |        +---------------------+
@@ -103,7 +103,7 @@
 | priority            |        | caravan_id (FK)     |--------+---------------------+     |
 | status              |        | specialty           |                                    |
 +---------------------+        +---------------------+        +---------------------+     |
-| CARAVAN_GOODS       |     |
+                                                              | CARAVAN_GOODS       |     |
 +---------------------+        +---------------------+        +---------------------+     |
 | TRADE_TRANSACTIONS  |        | DWARF_INTERESTS     |        | goods_id (PK)       |     |
 +---------------------+        +---------------------+        | caravan_id (FK)     |-----+
@@ -115,7 +115,7 @@
 | value               |        +---------------------+        | price_fluctuation   |     |
 | balance_direction   |        | CREATURES           |        | original_product_id |     |
 +---------------------+        +---------------------+        +---------------------+     |
-| creature_id (PK)    |                                    |
+                               | creature_id (PK)    |                                    |
 +---------------------+        | name                |        +---------------------+     |
 | EXPEDITIONS         |        | type                |        | DIPLOMATIC_EVENTS   |     |
 +---------------------+        | threat_level        |        +---------------------+     |
@@ -134,7 +134,7 @@
 | discovery_date      |        +---------------------+        | expedition_id (FK)  |
 | notes               |                                       | dwarf_id (FK)       |
 +---------------------+        +---------------------+        | role                |
-| CREATURE_ATTACKS    |        | survived            |
+                               | CREATURE_ATTACKS    |        | survived            |
 +---------------------+        +---------------------+        +---------------------+
 | EXPEDITION_CREATURES |       | attack_id (PK)      |
 +---------------------+        | creature_id (FK)    |        +---------------------+
@@ -143,7 +143,7 @@
 | encounter_date      |        | enemy_casualties    |        | expedition_id (FK)  |
 | outcome             |        | location_id         |        | artifact_id (PK)    |
 +---------------------+        | outcome             |        | discovery_date      |
-| defense_structures_used |    | value               |
+                               | defense_structures_used |    | value               |
 +---------------------+        | military_response_time_minutes | +-----------------+
 | EXPEDITION_EQUIPMENT |       +---------------------+
 +---------------------+                                       +---------------------+
