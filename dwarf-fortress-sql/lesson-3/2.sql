@@ -29,5 +29,34 @@ SELECT
 FROM Dwarves AS d;
 
 --reference
+SELECT
+    d.dwarf_id,
+    d.name,
+    d.age,
+    d.profession,
+    JSON_OBJECT(
+            'skill_ids', (
+        SELECT JSON_ARRAYAGG(ds.skill_id)
+        FROM dwarf_skills ds
+        WHERE ds.dwarf_id = d.dwarf_id
+    ),
+            'assignment_ids', (
+                SELECT JSON_ARRAYAGG(da.assignment_id)
+                FROM dwarf_assignments da
+                WHERE da.dwarf_id = d.dwarf_id
+            ),
+            'squad_ids', (
+                SELECT JSON_ARRAYAGG(sm.squad_id)
+                FROM squad_members sm
+                WHERE sm.dwarf_id = d.dwarf_id
+            ),
+            'equipment_ids', (
+                SELECT JSON_ARRAYAGG(de.equipment_id)
+                FROM dwarf_equipment de
+                WHERE de.dwarf_id = d.dwarf_id
+            )
+    ) AS related_entities
+FROM
+    dwarves d;
 
 --reflection

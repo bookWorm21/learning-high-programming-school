@@ -23,5 +23,39 @@ SELECT s.squad_id,
 FROM military_squads AS s;
 
 --reference
+SELECT
+    s.squad_id,
+    s.name,
+    s.formation_type,
+    s.leader_id,
+    JSON_OBJECT(
+            'member_ids', (
+        SELECT JSON_ARRAYAGG(sm.dwarf_id)
+        FROM squad_members sm
+        WHERE sm.squad_id = s.squad_id
+    ),
+            'equipment_ids', (
+                SELECT JSON_ARRAYAGG(se.equipment_id)
+                FROM squad_equipment se
+                WHERE se.squad_id = s.squad_id
+            ),
+            'operation_ids', (
+                SELECT JSON_ARRAYAGG(so.operation_id)
+                FROM squad_operations so
+                WHERE so.squad_id = s.squad_id
+            ),
+            'training_schedule_ids', (
+                SELECT JSON_ARRAYAGG(st.schedule_id)
+                FROM squad_training st
+                WHERE st.squad_id = s.squad_id
+            ),
+            'battle_report_ids', (
+                SELECT JSON_ARRAYAGG(sb.report_id)
+                FROM squad_battles sb
+                WHERE sb.squad_id = s.squad_id
+            )
+    ) AS related_entities
+FROM
+    military_squads s;
 
 --reflection
