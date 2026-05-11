@@ -29,7 +29,7 @@
 | assignment_date     |        | formation_type      |    |   +---------------------+
 | role                |        | leader_id (FK)      |----+   | EQUIPMENT           |
 +---------------------+        | fortress_id (FK)    |----+   +---------------------+
-+---------------------+        | equipment_id (PK)   |
+                               +---------------------+        | equipment_id (PK)   |
 +---------------------+                                       | name                |
 | WORKSHOP_MATERIALS  |        +---------------------+        | type                |
 +---------------------+        | SQUAD_MEMBERS       |        | material_id (FK)    |
@@ -38,10 +38,10 @@
 | is_input            |        | dwarf_id (FK)       |----+
 | quantity            |        | join_date           |        +---------------------+
 +---------------------+        | role                |        | SQUAD_EQUIPMENT     |
-| exit_date           |        +---------------------+
-| exit_reason         |                                       | squad_id (FK)       |
-+---------------------+                                       | equipment_id (FK)   |
-| quantity            |
+                               | exit_date           |        +---------------------+
+                               | exit_reason         |        | squad_id (FK)       |
+                               +---------------------+        | equipment_id (FK)   |
+                                                              | quantity            |
 +---------------------+        +---------------------+        | issued_date         |
 | WORKSHOP_PRODUCTS   |        | SQUAD_OPERATIONS    |        +---------------------+
 +---------------------+        +---------------------+
@@ -63,7 +63,7 @@
 | created_by          |        | enemy_type          |
 | workshop_id         |        | casualties          |        +---------------------+
 +---------------------+        | enemy_casualties    |        | RESOURCES           |
-+---------------------+        +---------------------+
+                               +---------------------+        +---------------------+
                                                               | resource_id (PK)    |
 +---------------------+        +---------------------+        | name                |
 | PROJECTS            |        | EXTRACTION_SITES    |        | type                |
