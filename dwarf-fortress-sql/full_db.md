@@ -92,7 +92,7 @@
 | dependent_project_id |       | zone_id (PK)        |        +---------------------+
 | dependency_type     |        | area                |
 +---------------------+        | purpose             |
-+---------------------+        +---------------------+
+                               +---------------------+        +---------------------+
 +---------------------+                                       | CARAVANS            |<----+
 | ORDERS              |        +---------------------+        +---------------------+     |
 +---------------------+        | TRADERS             |        | caravan_id (PK)     |     |
@@ -125,7 +125,7 @@
 | return_date         |                                       | outcome             |
 | status              |        +---------------------+        | date                |
 +---------------------+        | CREATURE_SIGHTINGS  |        | relationship_change |
-+---------------------+        | civilization_type   |
+                               +---------------------+        | civilization_type   |
 +---------------------+        | sighting_id (PK)    |        +---------------------+
 | EXPEDITION_SITES    |        | creature_id (FK)    |
 +---------------------+        | location            |        +---------------------+
@@ -152,7 +152,7 @@
 | quantity            |        +---------------------+        | report_id (PK)      |
 | return_condition    |        | territory_id (PK)   |        | expedition_id (FK)  |
 +---------------------+        | creature_id (FK)    |        | author_id (FK)      |
-| area                |        | title               |
+                               | area                |        | title               |
 +---------------------+        | danger_level        |        | content             |
 | LOCATIONS           |        | distance_to_fortress |       | creation_date       |
 +---------------------+        +---------------------+        +---------------------+
